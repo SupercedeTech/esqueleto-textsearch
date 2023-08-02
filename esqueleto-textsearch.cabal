@@ -1,12 +1,12 @@
 name:               esqueleto-textsearch
-version:            1.0.0.2
+version:            1.0.0.3
 synopsis:           PostgreSQL full text search for Esqueleto
 description:        PostgreSQL text search functions for Esqueleto.
 homepage:           https://github.com/albertov/esqueleto-textsearch
 license:            MIT
 license-file:       LICENSE
 author:             Alberto Valverde González
-maintainer:         alberto@toscat.net
+maintainer:         info@supercede.com
 copyright:          2015 Alberto Valverde González
 category:           Database
 build-type:         Simple
@@ -21,18 +21,18 @@ library
 
   build-depends:
       base                   >=4.9   && <5
-    , data-default
+    , data-default           <0.8
     , esqueleto              >=3.2
-    , parsec
-    , persistent             >=2.8.2
-    , persistent-postgresql  >=2.10
+    , parsec                 <3.2
+    , persistent             >=2.8.2 && <2.14
+    , persistent-postgresql  >=2.10  && <2.14
     , text                   >=1.2   && <2.1
 
   hs-source-dirs:   src
   default-language: Haskell2010
   ghc-options:      -Wall -fwarn-incomplete-uni-patterns
 
-executable spec
+test-suite spec
   type:             exitcode-stdio-1.0
   ghc-options:      -Wall -fwarn-incomplete-uni-patterns
   hs-source-dirs:   test

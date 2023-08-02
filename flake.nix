@@ -37,7 +37,6 @@
         nodes.server = {
           services.postgresql = {
             enable = true;
-            package = pkgs.postgresql_12;
             initialScript = pkgs.writeText "psql-init" ''
               CREATE USER test WITH SUPERUSER PASSWORD 'test';
               CREATE DATABASE test WITH OWNER test;

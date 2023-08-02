@@ -21,7 +21,9 @@
       };
     in
     {
-      defaultPackage.x86_64-linux = hpkgs.esqueleto-textsearch;
+      defaultPackage.x86_64-linux = pkgs.haskell.lib.dontCheck hpkgs.esqueleto-textsearch;
+      # to run this you need to
+      # set the test suite to an executable in the cabal file
       checks.x86_64-linux.tests =  pkgs.nixosTest {
         name = "esqueleto-test";
 

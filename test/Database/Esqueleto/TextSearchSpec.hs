@@ -289,7 +289,7 @@ spec = do
           query   = to_tsquery (val "english") (val "content")
           norm    = val []
       ret <- select $ return $ ts_rank (val def) vector query norm
-      liftIO $ map unValue ret `shouldBe` [6.07927e-2]
+      liftIO $ unValue (head ret) `shouldBe` 6.079271e-2
 
   describe "NormalizationOption" $ do
     describe "fromPersistValue . toPersistValue" $ do

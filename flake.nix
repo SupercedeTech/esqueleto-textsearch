@@ -21,7 +21,30 @@
       };
     in
     {
-      defaultPackage.x86_64-linux =  hpkgs.esqueleto-textsearch;
+      defaultPackage.x86_64-linux = hpkgs.esqueleto-textsearch;
+      checks.x86_64-linux.tests =  pkgs.nixosTest {
+        name = "esqueleto-test";
+
+        testScript = ''
+          server.start()
+          server.wait_for_unit("postgresql.service")
+          print(
+              server.succeed(
+                  "${hpkgs.esqueleto-textsearch}/bin/spec --fail-on-focused"
+              )
+          )
+        '';
+        nodes.server = {
+          services.postgresql = {
+            enable = true;
+            package = pkgs.postgresql_12;
+            initialScript = pkgs.writeText "psql-init" ''
+              CREATE USER test WITH SUPERUSER PASSWORD 'test';
+              CREATE DATABASE test WITH OWNER test;
+            '';
+          };
+        };
+      };
       inherit pkgs;
       devShell.x86_64-linux = hpkgs.shellFor {
         packages = ps : [ ps."esqueleto-textsearch" ];

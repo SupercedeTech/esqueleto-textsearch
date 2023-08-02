@@ -14,7 +14,7 @@
   outputs = { self, nixpkgs, flake-compat }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      hpkgs = pkgs.haskell.packages.ghc944.override {
+      hpkgs = pkgs.haskellPackages.override {
         overrides = hnew: hold: {
           esqueleto-textsearch = hnew.callCabal2nix "esqueleto-textsearch" ./. { };
         };

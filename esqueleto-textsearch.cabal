@@ -32,7 +32,7 @@ library
   default-language: Haskell2010
   ghc-options:      -Wall -fwarn-incomplete-uni-patterns
 
-test-suite spec
+executable spec
   type:             exitcode-stdio-1.0
   ghc-options:      -Wall -fwarn-incomplete-uni-patterns
   hs-source-dirs:   test

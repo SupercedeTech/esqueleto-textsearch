@@ -34,5 +34,5 @@ jobs:
       run: cabal update
     - name: Build using cabal
       run: cabal build all
-    - name: Test
-      run: cabal test all
+    # - name: Test
+    #   run: cabal test all

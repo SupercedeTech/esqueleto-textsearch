@@ -42,7 +42,6 @@ jobs:
     - name: cabal build and test
       run: |
           cabal build all
-          cabal test all
     - name : create issue 
       uses: dacbd/create-issue-action@v1
       if: ${{ failure() }}

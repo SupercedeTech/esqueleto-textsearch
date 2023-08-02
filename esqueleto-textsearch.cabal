@@ -20,13 +20,13 @@ library
     Database.Esqueleto.TextSearch.Types
 
   build-depends:
-      base                   >=4.9   && <5
-    , data-default           <0.8
-    , esqueleto              >=3.2 && < 3.6
-    , parsec                 <3.2
-    , persistent             >=2.8.2 && <2.14
-    , persistent-postgresql  >=2.10  && <2.14
-    , text                   >=1.2   && <2.1
+      base >=4.9 && <5,
+      data-default <0.8,
+      esqueleto >=3.2 && <3.6,
+      parsec <3.2,
+      persistent >=2.8.2 && <2.14 || ^>=2.14.5.1,
+      persistent-postgresql >=2.10 && <2.14,
+      text >=1.2 && <2.1
 
   hs-source-dirs:   src
   default-language: Haskell2010
@@ -39,19 +39,19 @@ test-suite spec
   main-is:          Spec.hs
   other-modules:    Database.Esqueleto.TextSearchSpec
   build-depends:
-      base
-    , esqueleto
-    , esqueleto-textsearch
-    , hspec
-    , HUnit
-    , monad-control
-    , monad-logger
-    , persistent
-    , persistent-postgresql
-    , persistent-template
-    , QuickCheck
-    , resourcet
-    , text
-    , transformers
+      base,
+      esqueleto,
+      esqueleto-textsearch,
+      hspec,
+      HUnit,
+      monad-control,
+      monad-logger,
+      persistent,
+      persistent-postgresql,
+      persistent-template,
+      QuickCheck,
+      resourcet,
+      text,
+      transformers
 
   default-language: Haskell2010
